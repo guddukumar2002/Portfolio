@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guddu Kumar | Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            background-color: rgb(18, 18, 62);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1.02rem;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 40px 84px;
+        }
+
+        .left {
+            font-size: 2rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 80px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 3rem;
+        }
+
+        .leftSection .buttons {
+            padding: 50px 0;
+        }
+
+        .leftSection .btn {
+            padding: 12px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 12px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rightSection img {
+            width: 80%;
+            margin: 40px 0;
+        }
+
+        .purple {
+            color: rgb(169, 107, 227);
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        #element {
+            color: rgb(70, 70, 255);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+
+        .secondSection h1 {
+            font-size: 2rem;
+            padding-bottom: 25px;
+        }
+
+        .secondSection .box {
+            background: white;
+            width: 79vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+
+        }
+
+        .secondSection .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 13vw;
+        }
+
+        .image-top {
+            width: 60px;
+            position: relative;
+            top: -50px;
+            left: -29px;
+        }
+
+        .vertical-title {
+            position: relative;
+            top: 75px;
+            width: 150px;
+            font-size: 20px;
+        }
+
+        .vertical-desc {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 150px;
+            font-size: 10px;
+        }
+
+        footer {
+            background-color: #0e0e1a;
+        }
+
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer>div {
+            width: 250px;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+
+        @media screen and (max-width: 1500px) {
+            body {
+               
+            }
+
+            .box {
+                flex-direction: column;
+            }
+
+            .secondSection .vertical {
+                height: unset;
+            }
+
+            .vertical-title,
+            .vertical-desc {
+                left: 45px;
+            }
+
+            .secondSection .box {
+                width: 50vw;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+
+
+            .firstSection {
+                flex-direction: column-reverse;
+            }
+
+            .leftSection {
+                width: 100% !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .rightSection {
+                width: 721px !important;
+                display: flex;
+                justify-content: center;
+            }
+
+            .rightSelection img {
+                width: 45vw;
+                margin-bottom: 73px;
+            }
+
+            .image-top {
+                top: 150px;
+            }
+
+            .secondSection {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+            }
+
+            .secondSection {
+                height: 300vh;
+            }
+
+            body {
+                min-width: fit-content;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Guddu's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="firstSection">
+            <div class="leftSection">
+                <div>Hi, My name is <span class="purple">Guddu</span></div>
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <a href="assets/GuddukumarResume.pdf" download>
+                        <button class="btn">Download Resume</button></a>
+                    <a href="https://github.com/guddukumar2002" target="_blank">
+                        <button class="btn">Visit Github</button></a>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="assets/bg.png" alt="">
+            </div>
+        </section>
+        <hr>
+        <section id="about" class="secondSection">
+            <span class="text-gray">What I have done so far</span>
+            <h1>Work Experience</h1>
+
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" src="assets/f.png" alt="">
+                    <div class="vertical-title">
+                       Web Developer Intern – CODEALPHA, (Mar 2024 – May 2024)
+                    </div>
+                    <div class="vertical-desc">
+                        <ul><li>Developed a full-stack web app using MERN stack</li>
+                        <li>Built responsive UI with React</li>
+                        <li>Created REST APIs with Node.js & Express.js</li>
+                        <li>Used MongoDB for database management</li></ul>
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="assets/node.png" height="35px" alt="">
+                    <div class="vertical-title">
+                        Node.js Developer Intern - inlign tech (03.2025 to 06.2025)
+                    </div>
+                    <div class="vertical-desc">
+                         <ul><li>Built and maintained scalable backend APIs using Node.js and Express.js</li>
+                        <li>Integrated MongoDB for efficient data storage and retrieval</li>
+                        <li>Worked on authentication, middleware, and error handling to ensure security and reliability</li></ul>
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="assets/developer.png" alt="">
+                    <div class="vertical-title">
+                         Frontend Developer - PearlThoughts(22.07.2025-18.08.2025)
+                    </div>
+                    <div class="vertical-desc">
+                        <ul><li>Demonstrated strong analytical and problem-solving abilities</li>
+                       <li>Working on frontend development tasks and applying concepts such as HTML, CSS, Javascript, React, and responsive design principles</li></ul>
+                    </div>
+                </div>
+                
+
+            </div>
+
+        </section>
+        <hr>
+<section id="projects" class="projectsSection">
+    <h1>My Projects</h1>
+    <div class="projects-container">
+        <div class="project-card">
+            <h3>Project 1: Portfolio Website</h3>
+            <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/your-username/portfolio" target="_blank" class="btn">View Code</a>
+            <a href="https://your-live-link.com" target="_blank" class="btn">Live Demo</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Project 2: E-commerce Store</h3>
+            <p>An online store built with React and Node.js, featuring user authentication and cart system.</p>
+            <a href="https://github.com/your-username/ecommerce" target="_blank" class="btn">View Code</a>
+            <a href="https://your-live-link.com" target="_blank" class="btn">Live Demo</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Project 3: Weather App</h3>
+            <p>A weather forecast app that fetches live data from an API and displays it beautifully.</p>
+            <a href="https://github.com/your-username/weather-app" target="_blank" class="btn">View Code</a>
+            <a href="https://your-live-link.com" target="_blank" class="btn">Live Demo</a>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="footer">
+            <!-- About Section -->
+            <div class="footer-about">
+                <h3>Guddu's Portfolio</h3>
+                <p>Passionate Web Developer building modern and responsive web applications.</p>
+            </div>
+
+            <!-- Quick Links -->
+           <div class="footer-links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
+
+            <!-- Contact & Socials -->
+            <div class="footer-contact">
+                <h3>Contact Me</h3>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required><br>
+                    <input type="email" name="email" placeholder="Your Email" required><br>
+                    <textarea name="message" placeholder="Your Message" required></textarea><br>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+
+                <div class="footer-socials">
+                    <a href="https://github.com/guddukumar2002" target="_blank">GitHub</a> |
+                    <a href="https://linkedin.com/in/guddu-kumar-10b7bb258" target="_blank">LinkedIn</a> |
+                    <a href="https://instagram.com/meguddukumar" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rights -->
+        <div class="footer-rights">
+            Copyright &#169; guddusportfolio.com | All Rights Reserved
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Graphic Designer', 'Web Designer', 'UI/UX Designer'],
+            typeSpeed: 50,
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script>
+  (function() {
+      emailjs.init("9Vhw0ZhQtyNgRaCX7"); 
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm("service_ny7toeu", "template_19oy00r", this)
+        .then(function() {
+            alert("✅ Message Sent Successfully!");
+        }, function(error) {
+            alert("❌ Failed to send message: " + JSON.stringify(error));
+        });
+  });
+</script>
+
+</body>
+
+</html>
