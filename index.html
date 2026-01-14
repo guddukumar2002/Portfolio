@@ -9,247 +9,603 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: rgb(0, 0, 33);
             color: white;
             font-family: "Poppins", sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Navigation */
         nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 80px;
             background-color: rgb(18, 18, 62);
+            padding: 0 5%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 23px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
+        nav .left {
+            font-size: 1.8rem;
+            font-weight: 700;
             color: white;
         }
 
-        nav ul li a:hover {
+        nav .right ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav .right ul li {
+            margin-left: 2rem;
+        }
+
+        nav .right ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav .right ul li a:hover {
             color: rgb(153, 153, 226);
-            font-size: 1.02rem;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        main hr {
-            border: 0;
-            background: #9c97f1;
-            height: 1.2px;
-            margin: 40px 84px;
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
         }
 
-        .left {
-            font-size: 2rem;
-        }
-
+        /* Hero Section */
         .firstSection {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            margin: 80px 0;
-        }
-
-        .firstSection>div {
-            width: 30%;
+            min-height: 100vh;
+            padding: 0 5%;
+            margin-top: 80px;
+            flex-wrap: wrap;
         }
 
         .leftSection {
-            font-size: 3rem;
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
         }
 
-        .leftSection .buttons {
-            padding: 50px 0;
+        .leftSection div {
+            margin-bottom: 1rem;
         }
 
-        .leftSection .btn {
-            padding: 12px;
-            background: #1e2167;
-            color: white;
-            border: 2px solid white;
-            border-radius: 12px;
-            font-size: 20px;
-            cursor: pointer;
+        .leftSection .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
-        .rightSection img {
-            width: 80%;
-            margin: 40px 0;
+        .leftSection .title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
         }
 
         .purple {
             color: rgb(169, 107, 227);
         }
 
-        .text-gray {
-            color: gray;
-        }
-
         #element {
             color: rgb(70, 70, 255);
+            font-weight: 700;
         }
 
-        .secondSection {
-            max-width: 80vw;
-            margin: auto;
-            height: 80vh;
-        }
-
-        .secondSection h1 {
-            font-size: 2rem;
-            padding-bottom: 25px;
-        }
-
-        .secondSection .box {
-            background: white;
-            width: 79vw;
-            height: 2px;
-            margin: 56px 0;
+        .buttons {
+            margin-top: 3rem;
             display: flex;
-
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .secondSection .vertical {
-            height: 93px;
-            width: 1px;
-            background-color: white;
-            margin: 0 13vw;
+        .btn {
+            padding: 14px 28px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 180px;
         }
 
-        .image-top {
-            width: 60px;
+        .btn:hover {
+            background: rgb(169, 107, 227);
+            border-color: rgb(169, 107, 227);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(169, 107, 227, 0.4);
+        }
+
+        .rightSection {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rightSection img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Divider */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #9c97f1, transparent);
+            margin: 5rem auto;
+            width: 80%;
+        }
+
+        /* Work Experience Section */
+        .secondSection {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: #9c97f1;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .timeline {
             position: relative;
-            top: -50px;
-            left: -29px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .vertical-title {
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #9c97f1;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
             position: relative;
-            top: 75px;
-            width: 150px;
-            font-size: 20px;
+            width: 50%;
+            margin-bottom: 3rem;
         }
 
-        .vertical-desc {
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: rgb(30, 30, 70);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
-            top: 86px;
-            color: gray;
-            width: 150px;
-            font-size: 10px;
         }
 
+        .timeline-content h3 {
+            color: rgb(169, 107, 227);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: #9c97f1;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-content .duration {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: -25px;
+            background-color: rgb(169, 107, 227);
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 15px;
+            box-shadow: 0 0 10px rgba(169, 107, 227, 0.5);
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -25px;
+        }
+
+        .timeline-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Projects Section */
+        .projectsSection {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgb(30, 30, 70);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card h3 {
+            color: rgb(169, 107, 227);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #ddd;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .project-buttons .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        /* Footer */
         footer {
             background-color: #0e0e1a;
+            padding: 4rem 5% 2rem;
+            margin-top: 5rem;
         }
 
-        .footer {
-            display: flex;
-            padding: 23px 122px;
-            justify-content: space-evenly;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .footer ul {
+        .footer-column h3 {
+            color: rgb(169, 107, 227);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .footer-links {
             list-style: none;
         }
 
-        .footer>div {
-            width: 250px;
+        .footer-links li {
+            margin-bottom: 0.8rem;
         }
 
-        footer .footer-rights {
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: rgb(169, 107, 227);
+        }
+
+        .footer-links i {
+            width: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: rgb(169, 107, 227);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
             text-align: center;
-            color: gray;
-            padding: 12px 0;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
         }
 
-        @media screen and (max-width: 1500px) {
-            body {
-               
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .leftSection .name {
+                font-size: 3rem;
             }
-
-            .box {
-                flex-direction: column;
-            }
-
-            .secondSection .vertical {
-                height: unset;
-            }
-
-            .vertical-title,
-            .vertical-desc {
-                left: 45px;
-            }
-
-            .secondSection .box {
-                width: 50vw;
-            }
-
-            nav {
-                flex-direction: column;
-            }
-
-
-
-            .firstSection {
-                flex-direction: column-reverse;
-            }
-
-            .leftSection {
-                width: 100% !important;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .rightSection {
-                width: 721px !important;
-                display: flex;
-                justify-content: center;
-            }
-
-            .rightSelection img {
-                width: 45vw;
-                margin-bottom: 73px;
-            }
-
-            .image-top {
-                top: 150px;
-            }
-
-            .secondSection {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-            }
-
-            .secondSection {
-                height: 300vh;
-            }
-
-            body {
-                min-width: fit-content;
-            }
-
             
+            .leftSection .title {
+                font-size: 2rem;
+            }
+            
+            .rightSection img {
+                max-width: 450px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-icon {
+                left: 15px;
+            }
+            
+            .timeline-icon {
+                left: 15px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 3%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            nav .right {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: rgb(18, 18, 62);
+                transition: left 0.3s ease;
+                padding-top: 2rem;
+            }
+            
+            nav .right.active {
+                left: 0;
+            }
+            
+            nav .right ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav .right ul li {
+                margin: 1rem 0;
+            }
+            
+            .firstSection {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+            
+            .leftSection {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            
+            .buttons {
+                justify-content: center;
+            }
+            
+            .rightSection img {
+                max-width: 350px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-buttons {
+                flex-direction: column;
+            }
+            
+            .project-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .leftSection .name {
+                font-size: 2.5rem;
+            }
+            
+            .leftSection .title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+                min-width: 160px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline-content {
+                padding: 15px 20px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .leftSection .name {
+                font-size: 2.2rem;
+            }
+            
+            .leftSection .title {
+                font-size: 1.6rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .rightSection img {
+                max-width: 280px;
+            }
         }
     </style>
 </head>
@@ -258,179 +614,265 @@
     <header>
         <nav>
             <div class="left">Guddu's Portfolio</div>
-            <div class="right">
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="right" id="navMenu">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="firstSection">
             <div class="leftSection">
-                <div>Hi, My name is <span class="purple">Guddu</span></div>
-                <div>and I am a passionate</div>
-                <span id="element"></span>
+                <div class="name">Hi, My name is <span class="purple">Guddu</span></div>
+                <div class="title">and I am a passionate <span id="element"></span></div>
                 <div class="buttons">
-                    <a href="assets/GuddukumarResume.pdf" download>
-                        <button class="btn">Download Resume</button></a>
-                    <a href="https://github.com/guddukumar2002" target="_blank">
-                        <button class="btn">Visit Github</button></a>
+                    <a href="assets/GuddukumarResume.pdf" download class="btn">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="https://github.com/guddukumar2002" target="_blank" class="btn">
+                        <i class="fab fa-github"></i> Visit Github
+                    </a>
                 </div>
             </div>
             <div class="rightSection">
-                <img src="assets/bg.png" alt="">
+                <img src="assets/bg.png" alt="Developer Illustration">
             </div>
         </section>
-        <hr>
-        <section id="about" class="secondSection">
-            <span class="text-gray">What I have done so far</span>
-            <h1>Work Experience</h1>
 
-            <div class="box">
-                <div class="vertical">
-                    <img class="image-top" src="assets/f.png" alt="">
-                    <div class="vertical-title">
-                       Web Developer Intern – CODEALPHA, (Mar 2024 – May 2024)
+        <div class="section-divider"></div>
+
+        <!-- Work Experience Section -->
+        <section id="about" class="secondSection">
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-subtitle">What I have done so far</p>
+            
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <div class="vertical-desc">
-                        <ul><li>Developed a full-stack web app using MERN stack</li>
-                        <li>Built responsive UI with React</li>
-                        <li>Created REST APIs with Node.js & Express.js</li>
-                        <li>Used MongoDB for database management</li></ul>
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="assets/node.png" height="35px" alt="">
-                    <div class="vertical-title">
-                        Node.js Developer Intern - inlign tech (03.2025 to 06.2025)
-                    </div>
-                    <div class="vertical-desc">
-                         <ul><li>Built and maintained scalable backend APIs using Node.js and Express.js</li>
-                        <li>Integrated MongoDB for efficient data storage and retrieval</li>
-                        <li>Worked on authentication, middleware, and error handling to ensure security and reliability</li></ul>
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="assets/developer.png" alt="">
-                    <div class="vertical-title">
-                         Frontend Developer - PearlThoughts(22.07.2025-18.08.2025)
-                    </div>
-                    <div class="vertical-desc">
-                        <ul><li>Demonstrated strong analytical and problem-solving abilities</li>
-                       <li>Working on frontend development tasks and applying concepts such as HTML, CSS, Javascript, React, and responsive design principles</li></ul>
+                    <div class="timeline-content">
+                        <h3>Web Developer Intern</h3>
+                        <p class="company">CODEALPHA</p>
+                        <p class="duration">Mar 2024 – May 2024</p>
+                        <ul>
+                            <li>Developed a full-stack web app using MERN stack</li>
+                            <li>Built responsive UI with React</li>
+                            <li>Created REST APIs with Node.js & Express.js</li>
+                            <li>Used MongoDB for database management</li>
+                        </ul>
                     </div>
                 </div>
                 
-
-            </div>
-
-        </section>
-        <hr>
-<section id="projects" class="projectsSection">
-    <h1>My Projects</h1>
-    <div class="projects-container">
-        <div class="project-card">
-            <h3>Project 1: Portfolio Website</h3>
-            <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript.</p>
-            <a href="https://github.com/guddukumar2002/portfolio" target="_blank" class="btn">View Code</a>
-            <a href="https://portfolio-navy-five-0js1o243qi.vercel.app/" target="_blank" class="btn">Live Demo</a>
-        </div>
-
-        <div class="project-card">
-            <h3>Project 2: myTask - Todo List</h3>
-            <p>A fully functional Todo List application built with React. Allows users to add, edit, delete, and mark tasks as complete. Features a clean UI, responsive design, and local storage support to save tasks across sessions.</p>
-            <a href="https://github.com/guddukumar2002/myTask-Todo-List" target="_blank" class="btn">View Code</a>
-            <a href="https://my-task-todo-list.vercel.app/" target="_blank" class="btn">Live Demo</a>
-        </div>
-
-        <div class="project-card">
-            <h3>Project 3: Weather App</h3>
-            <p>A weather forecast app that fetches live data from an API and displays it beautifully.</p>
-            <a href="https://github.com/your-username/weather-app" target="_blank" class="btn">View Code</a>
-            <a href="https://your-live-link.com" target="_blank" class="btn">Live Demo</a>
-        </div>
-    </div>
-</section>
-
-    </main>
-
-    <footer id="contact">
-        <div class="footer">
-            <!-- About Section -->
-            <div class="footer-about">
-                <h3>Guddu's Portfolio</h3>
-                <p>Passionate Web Developer building modern and responsive web applications.</p>
-            </div>
-
-            <!-- Quick Links -->
-           <div class="footer-links">
-    <h3>Quick Links</h3>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</div>
-
-
-            <!-- Contact & Socials -->
-            <div class="footer-contact">
-                <h3>Contact Me</h3>
-                <form id="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required><br>
-                    <input type="email" name="email" placeholder="Your Email" required><br>
-                    <textarea name="message" placeholder="Your Message" required></textarea><br>
-                    <button type="submit" class="btn">Send</button>
-                </form>
-
-                <div class="footer-socials">
-                    <a href="https://github.com/guddukumar2002" target="_blank">GitHub</a> |
-                    <a href="https://linkedin.com/in/guddu-kumar-10b7bb258" target="_blank">LinkedIn</a> |
-                    <a href="https://instagram.com/meguddukumar" target="_blank">Instagram</a>
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Node.js Developer Intern</h3>
+                        <p class="company">Inlign Tech</p>
+                        <p class="duration">Mar 2025 – Jun 2025</p>
+                        <ul>
+                            <li>Built and maintained scalable backend APIs using Node.js and Express.js</li>
+                            <li>Integrated MongoDB for efficient data storage and retrieval</li>
+                            <li>Worked on authentication, middleware, and error handling to ensure security and reliability</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Frontend Developer</h3>
+                        <p class="company">PearlThoughts</p>
+                        <p class="duration">Jul 2025 – Aug 2025</p>
+                        <ul>
+                            <li>Demonstrated strong analytical and problem-solving abilities</li>
+                            <li>Working on frontend development tasks and applying concepts such as HTML, CSS, Javascript, React, and responsive design principles</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Rights -->
-        <div class="footer-rights">
-            Copyright &#169; guddusportfolio.com | All Rights Reserved
+        <div class="section-divider"></div>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projectsSection">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-subtitle">Some of my recent work</p>
+            
+            <div class="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript. Features modern design, smooth animations, and fully responsive layout.</p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/guddukumar2002/portfolio" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://portfolio-navy-five-0js1o243qi.vercel.app/" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>myTask - Todo List</h3>
+                    <p>A fully functional Todo List application built with React. Allows users to add, edit, delete, and mark tasks as complete. Features a clean UI, responsive design, and local storage support.</p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/guddukumar2002/myTask-Todo-List" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://my-task-todo-list.vercel.app/" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - SEO Analyzer -->
+                <div class="project-card">
+                    <h3>SEO Analyzer Tool</h3>
+                    <p>A comprehensive SEO analysis tool that evaluates websites for SEO performance, checks meta tags, analyzes content, and provides optimization suggestions. Built with modern web technologies for real-time analysis.</p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/guddukumar2002/seo-analyzer" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://seo-analyzer-frontend-blue.vercel.app/" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Guddu's Portfolio</h3>
+                <p>Passionate Web Developer building modern and responsive web applications. Specializing in frontend and backend development with latest technologies.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/guddukumar2002" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/guddu-kumar-10b7bb258" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://instagram.com/meguddukumar" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Me</h3>
+                <form id="contact-form" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Copyright © 2024 Guddu's Portfolio | All Rights Reserved</p>
         </div>
     </footer>
 
-
-
+    <!-- Scripts -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <!-- Setup and start animation! -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script>
+        // Typed.js initialization
         var typed = new Typed('#element', {
-            strings: ['Web Developer', 'Graphic Designer', 'Web Designer', 'UI/UX Designer'],
+            strings: ['Web Developer', 'Frontend Developer', 'Backend Developer', 'Full Stack Developer'],
             typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+            loopCount: Infinity
+        });
+
+        // Mobile navigation toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            this.innerHTML = document.getElementById('navMenu').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+                document.getElementById('hamburger').innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // EmailJS initialization and form handling
+        (function() {
+            emailjs.init("9Vhw0ZhQtyNgRaCX7"); 
+        })();
+
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm("service_ny7toeu", "template_19oy00r", this)
+                .then(function() {
+                    alert("✅ Message Sent Successfully!");
+                    document.getElementById("contact-form").reset();
+                }, function(error) {
+                    alert("❌ Failed to send message: " + JSON.stringify(error));
+                });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-<script>
-  (function() {
-      emailjs.init("9Vhw0ZhQtyNgRaCX7"); 
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      emailjs.sendForm("service_ny7toeu", "template_19oy00r", this)
-        .then(function() {
-            alert("✅ Message Sent Successfully!");
-        }, function(error) {
-            alert("❌ Failed to send message: " + JSON.stringify(error));
-        });
-  });
-</script>
-
 </body>
 
 </html>
